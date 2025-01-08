@@ -1,0 +1,6 @@
+curl -X GET "https://example.com/dl.asp?un=123456789012345&pw=abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890"
+
+for i in {1..10}; do
+  curl -X GET "https://example.com/dl.asp?un=$(printf '%015d' $i)&pw=$(openssl rand -hex 16)"
+done
+

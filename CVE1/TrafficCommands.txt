@@ -1,0 +1,15 @@
+# Malformed Examples (Trigger the Rule)
+curl -H "Expect: invalid-value" http://example.com
+curl -H "Expect: 200-continue" http://example.com
+curl -H "Expect: 100continue" http://example.com
+curl -H "Expect: " http://example.com
+curl -H "Expect: CONTINUE-100" http://example.com
+curl -H "Expect: 100_continue" http://example.com
+curl -H "Expect: 100%continue" http://example.com
+curl -H "Expect: 100-continue;;" http://example.com
+curl -H "Expect; 100-continue" http://example.com
+
+# Benign Examples (Do Not Trigger the Rule)
+curl -H "Expect: 100-continue" http://example.com
+curl http://example.com
+curl -H "Host: example.com" http://example.com

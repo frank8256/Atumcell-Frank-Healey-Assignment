@@ -1,0 +1,36 @@
+alert http any any -> any any (
+    msg: "CVE-2023-27394 Command Injection Attempt";
+    flow: to_server, established;
+    http_uri;
+    pcre: "/(?:DataLogView|EventsView|AlarmsView)\.php\?eventFileSelected=/";
+    content: "`";
+    reference: cve,2023-27394;
+    classtype: attempted-admin;
+    sid: 1000004;
+    rev: 1;
+)
+
+alert http any any -> any any (
+    msg: "CVE-2023-27394 Command Injection Attempt";
+    flow: to_server, established;
+    http_uri;
+    pcre: "/(?:DataLogView|EventsView|AlarmsView)\.php\?eventFileSelected=/";
+    content: "|7C|";
+    reference: cve,2023-27394;
+    classtype: attempted-admin;
+    sid: 1000005;
+    rev: 1;
+)
+
+
+alert http any any -> any any (
+    msg: "CVE-2023-27394 Command Injection Attempt";
+    flow: to_server, established;
+    http_uri;
+    pcre: "/(?:DataLogView|EventsView|AlarmsView)\.php\?eventFileSelected=/";
+    content: ";";
+    reference: cve,2023-27394;
+    classtype: attempted-admin;
+    sid: 1000006;
+    rev: 1;
+)
