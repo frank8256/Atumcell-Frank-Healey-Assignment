@@ -1,5 +1,6 @@
 alert tcp any any -> any any (
     msg:"Kaseya CVE-2021-30116 Exploitation Attempt";
+    http_method; content:"GET"; 
     http_uri; 
     content:"/dl.asp?un="; 
     http_uri;
